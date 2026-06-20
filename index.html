@@ -246,6 +246,55 @@
     line-height: 1.65;
   }
 
+  /* ── RESEARCH ── */
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .research-card {
+    background: #fff;
+    border-radius: 6px;
+    padding: 24px 20px;
+    border-top: 3px solid var(--sage);
+    position: relative;
+  }
+  .research-card .r-icon {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    display: block;
+  }
+  .research-card h3 {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .research-card p {
+    font-size: 13px;
+    color: var(--dim);
+    line-height: 1.6;
+  }
+  .research-note {
+    margin-top: 28px;
+    padding: 18px 22px;
+    background: var(--ink);
+    border-radius: 6px;
+    color: rgba(255,255,255,.75);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .research-note strong { color: var(--gold); }
+
+  .job-para {
+    font-size: 14px;
+    color: #3a3a4a;
+    line-height: 1.75;
+    margin-bottom: 10px;
+  }
+
   .divider {
     width: 40px;
     height: 1px;
@@ -320,7 +369,7 @@
 
 <!-- HEADER -->
 <header>
-  <div class="eyebrow">Associate Director · Implementation Manager</div>
+  <div class="eyebrow">Associate Director · Implementation Manager · Independent Researcher</div>
   <h1>Preethi <em>Kamalakkannan</em></h1>
   <p class="tagline">20 years delivering enterprise solutions across fintech, healthcare, and AI — from Singapore to San Francisco.</p>
   <div class="contact-strip">
@@ -337,6 +386,7 @@
 <!-- NAV -->
 <nav>
   <a href="#profile">Profile</a>
+  <a href="#research">Research</a>
   <a href="#skills">Skills</a>
   <a href="#experience">Experience</a>
   <a href="#education">Education</a>
@@ -366,6 +416,32 @@
       <div class="metric-num">58%</div>
       <div class="metric-label">Origination Time Reduced</div>
     </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-label">Independent Research</div>
+  <h2>Research Areas</h2>
+  <div class="research-grid">
+    <div class="research-card">
+      <span class="r-icon">🏦</span>
+      <h3>AI/ML in Lending</h3>
+      <p>Applying machine learning models to credit risk assessment, loan origination automation, and intelligent underwriting — bridging financial domain expertise with modern AI tooling.</p>
+    </div>
+    <div class="research-card">
+      <span class="r-icon">🏥</span>
+      <h3>AI/ML in Healthcare</h3>
+      <p>Exploring agentic AI for member and provider experiences, clinical decision support, and regulatory-compliant data exchange across Medicare-Medicaid platforms.</p>
+    </div>
+    <div class="research-card">
+      <span class="r-icon">🚗</span>
+      <h3>Software Defined Vehicles</h3>
+      <p>Researching AI integration patterns for SDV architectures — including over-the-air update pipelines, in-vehicle inference, and secure edge-to-cloud communication.</p>
+    </div>
+  </div>
+  <div class="research-note">
+    <strong>Specialization:</strong> Expert in implementing <strong>Small Language Models (SLMs)</strong> and applying compression methods — including quantization, pruning, and knowledge distillation — to deploy efficient, domain-specific AI at scale in resource-constrained environments.
   </div>
 </section>
 
@@ -410,11 +486,7 @@
     <div class="job-context">Largest not-for-profit Medicare-Medicaid public health plan in the US, serving 1.5M+ members and 8,000+ providers.</div>
     <div class="role-block">
       <div class="role-title">Implementation Manager</div>
-      <ul class="bullets">
-        <li>Lead end-to-end implementation of digital and integration initiatives across business, operations, and technology teams.</li>
-        <li>Manage B2B and API-based integrations for member and provider platforms, including data mappings, transformation logic, and secure data exchange.</li>
-        <li>Driving delivery of Agentic AI Virtual Assistants for Member and Provider portals, improving accuracy and user experience iteratively.</li>
-      </ul>
+      <p class="job-para">Leading end-to-end implementation of digital and integration initiatives across business, operations, and technology teams at the largest not-for-profit Medicare-Medicaid health plan in the US. Manages B2B and API-based integrations for member and provider platforms, and is currently driving delivery of Agentic AI Virtual Assistants to improve portal accuracy and user experience iteratively.</p>
     </div>
   </div>
 
@@ -432,42 +504,19 @@
     <div class="role-block">
       <div class="role-title">Associate Director – Sr. Implementation Manager</div>
       <div class="role-period-sub">02/2019 – 03/2025</div>
-      <ul class="bullets">
-        <li>Led client onboarding, solution design, and implementation for global financial institutions — contributing $3M in annual revenue.</li>
-        <li>Built trusted advisor relationships with C-level executives, risk officers, and analytics teams across institutions worldwide.</li>
-        <li>Managed up to 10 concurrent software projects, improving loan origination processes and reducing origination times by 58%.</li>
-        <li>Delivered cloud integration solutions including real-time REST API (.Net C#) and scheduled batch processes, supporting SaaS adoption.</li>
-        <li>Increased product adoption by 25% and improved client satisfaction scores by 18% through tailored value proposition communication.</li>
-        <li>Enhanced delivery efficiency by 40% through standardized documentation templates; boosted upgrade quality by 65%.</li>
-        <li>Deep expertise in SSO via Okta/SAML and JWT token-based access for secure solution rollouts.</li>
-      </ul>
+      <p class="job-para">Led client onboarding, solution design, and implementation for global financial institutions, contributing $3M in annual revenue with 99% on-time delivery and a 4.7/5.0 quality score. Built C-suite advisory relationships and managed up to 10 concurrent projects, reducing loan origination times by 58%. Delivered REST API cloud integrations, increased product adoption by 25%, improved client satisfaction by 18%, and enhanced delivery efficiency by 40% through standardized documentation and process frameworks.</p>
     </div>
 
     <div class="role-block">
       <div class="role-title">Assistant Director – Sr. Implementation Manager</div>
       <div class="role-period-sub">09/2015 – 02/2019</div>
-      <ul class="bullets">
-        <li>Delivered $1M in annual revenue through successful implementations — 99% on-time with 4.7/5.0 quality scores.</li>
-        <li>Managed customization of Moody's credit risk assessment products for global banks.</li>
-        <li>Designed custom workflows, credit scoring models, and integration solutions aligned to client needs and regulatory compliance.</li>
-      </ul>
+      <p class="job-para">Delivered $1M in annual revenue managing customization and implementation of Moody's credit risk products for global banks. Designed custom workflows, credit scoring models, and integration solutions aligned to client needs and regulatory compliance — consistently 99% on-time.</p>
     </div>
 
     <div class="role-block">
-      <div class="role-title">Senior Software Test Engineer</div>
-      <div class="role-period-sub">09/2013 – 08/2015 · Singapore</div>
-      <ul class="bullets">
-        <li>Pioneered test automation strategies and functional testing for Moody's banking solutions.</li>
-        <li>Conducted QA and system validation for credit risk platforms; participated in product design and gap analysis.</li>
-      </ul>
-    </div>
-
-    <div class="role-block">
-      <div class="role-title">Software Engineer</div>
-      <div class="role-period-sub">04/2010 – 09/2013 · Singapore</div>
-      <ul class="bullets">
-        <li>Developed credit risk platforms; key contributions include AI integration in the formula engine, Dependency Manager, C++ APIs, MDM adapter, and Dynamic adapter (FLEX).</li>
-      </ul>
+      <div class="role-title">Senior Software Test Engineer &amp; Software Engineer</div>
+      <div class="role-period-sub">04/2010 – 08/2015 · Singapore</div>
+      <p class="job-para">Began at Moody's in Singapore as a Software Engineer building credit risk platforms, with key contributions to the AI-powered formula engine, Dependency Manager, C++ APIs, and MDM adapters. Progressed to Senior Test Engineer, pioneering test automation strategies and QA validation for banking solutions.</p>
     </div>
   </div>
 
@@ -482,10 +531,7 @@
     <div class="job-location">Chennai, India</div>
     <div class="role-block">
       <div class="role-title">Software Engineer</div>
-      <ul class="bullets">
-        <li>Developed wireless solutions focused on Bluetooth presence services and VoIP applications.</li>
-        <li>Directed system integrations for customer premise equipment (CPE) provisioning.</li>
-      </ul>
+      <p class="job-para">Developed wireless solutions focused on Bluetooth presence services and VoIP applications, and directed system integrations for customer premise equipment (CPE) provisioning.</p>
     </div>
   </div>
 
@@ -500,10 +546,7 @@
     <div class="job-location">Bangalore, India</div>
     <div class="role-block">
       <div class="role-title">Software Engineer</div>
-      <ul class="bullets">
-        <li>Developed insurance and healthcare applications; managed billing and accounts receivable systems.</li>
-        <li>Delivered technical solutions for complex business processes within healthcare and financial services.</li>
-      </ul>
+      <p class="job-para">Developed insurance and healthcare applications and managed billing and accounts receivable systems, delivering technical solutions for complex business processes across healthcare and financial services.</p>
     </div>
   </div>
 </section>
