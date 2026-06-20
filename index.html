@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Preethi Kamalakkannan</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a2e;
+    --mist: #f5f3ef;
+    --sage: #8aab9b;
+    --gold: #c9a96e;
+    --pale: #eae6df;
+    --dim: #6b6b7b;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--mist);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: #fff;
+    padding: 80px 40px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,110,.18) 0%, transparent 70%);
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(138,171,155,.15) 0%, transparent 70%);
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .tagline {
+    font-size: 15px;
+    color: rgba(255,255,255,.55);
+    max-width: 520px;
+    margin: 0 auto 32px;
+    font-weight: 300;
+  }
+
+  .contact-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 24px;
+    font-size: 13px;
+    color: rgba(255,255,255,.65);
+  }
+  .contact-strip a {
+    color: var(--sage);
+    text-decoration: none;
+  }
+  .contact-strip span { color: rgba(255,255,255,.25); }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--pale);
+    border-bottom: 1px solid rgba(0,0,0,.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+  nav a {
+    display: block;
+    padding: 14px 22px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--dim);
+    text-decoration: none;
+    transition: color .2s;
+    border-bottom: 2px solid transparent;
+  }
+  nav a:hover { color: var(--ink); border-color: var(--gold); }
+
+  /* ── SECTIONS ── */
+  section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 72px 32px;
+    border-bottom: 1px solid var(--pale);
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--pale);
+    max-width: 200px;
+  }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 300;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  p { color: #3a3a4a; font-size: 15px; }
+
+  /* ── PROFILE ── */
+  .profile-text { max-width: 680px; }
+  .profile-text p { font-size: 16px; line-height: 1.85; }
+
+  /* ── COMPETENCIES ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .skill-chip {
+    background: #fff;
+    border: 1px solid var(--pale);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--ink);
+    line-height: 1.4;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .skill-chip:hover { border-color: var(--sage); box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+
+  /* ── EXPERIENCE ── */
+  .job {
+    margin-bottom: 52px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .job:last-child { margin-bottom: 0; }
+
+  .job-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 6px;
+  }
+  .job-company {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .job-period {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--gold);
+    white-space: nowrap;
+  }
+  .job-location {
+    font-size: 12px;
+    color: var(--dim);
+    margin-bottom: 10px;
+  }
+  .job-context {
+    font-size: 13px;
+    color: var(--dim);
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+
+  .role-block { margin-bottom: 20px; }
+  .role-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--sage);
+    letter-spacing: .5px;
+    margin-bottom: 6px;
+  }
+  .role-period-sub {
+    font-size: 12px;
+    color: var(--dim);
+    margin-bottom: 8px;
+  }
+
+  ul.bullets { padding-left: 18px; }
+  ul.bullets li {
+    font-size: 14px;
+    color: #3a3a4a;
+    margin-bottom: 6px;
+    line-height: 1.65;
+  }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--sage);
+    margin: 24px 0;
+  }
+
+  /* ── EDUCATION & CERTS ── */
+  .edu-card {
+    background: #fff;
+    border-radius: 6px;
+    padding: 24px 28px;
+    border-left: 3px solid var(--gold);
+    margin-bottom: 16px;
+  }
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .edu-school { font-size: 14px; color: var(--dim); }
+  .edu-year { font-size: 12px; color: var(--gold); letter-spacing: 1px; margin-top: 4px; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 48px 24px;
+    font-size: 12px;
+    color: var(--dim);
+    letter-spacing: .5px;
+    background: var(--ink);
+    color: rgba(255,255,255,.3);
+  }
+  footer a { color: var(--sage); text-decoration: none; }
+
+  /* ── METRICS BAR ── */
+  .metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 32px;
+  }
+  .metric {
+    flex: 1;
+    min-width: 130px;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 6px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .metric-num {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .metric-label { font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,.5); text-transform: uppercase; }
+
+  @media (max-width: 600px) {
+    header { padding: 60px 24px 48px; }
+    section { padding: 52px 20px; }
+    nav a { padding: 12px 14px; font-size: 10px; }
+    .job-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="eyebrow">Associate Director · Implementation Manager</div>
+  <h1>Preethi <em>Kamalakkannan</em></h1>
+  <p class="tagline">20 years delivering enterprise solutions across fintech, healthcare, and AI — from Singapore to San Francisco.</p>
+  <div class="contact-strip">
+    <span>Walnut Creek, CA 94597</span>
+    <span>·</span>
+    <a href="tel:4422373209">442-237-3209</a>
+    <span>·</span>
+    <a href="mailto:preethi.kamalakannan@gmail.com">preethi.kamalakannan@gmail.com</a>
+    <span>·</span>
+    <a href="https://linkedin.com/in/preethi-kamalakkannan" target="_blank">LinkedIn ↗</a>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#profile">Profile</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+</nav>
+
+<!-- PROFILE -->
+<section id="profile">
+  <div class="section-label">About</div>
+  <div class="profile-text">
+    <h2>Client Success Through<br/>Technical Depth</h2>
+    <p>Associate Director and senior Implementation Manager for configurable hosted solutions, focused on delivering customer success. Experienced in guiding clients through requirements gathering, system design, and seamless deployment using Agile methodologies. Builds strong client relationships through tailored training, optimized solutioning, and C-suite advisory across global financial and healthcare institutions.</p>
+  </div>
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-num">20+</div>
+      <div class="metric-label">Years Experience</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">99%</div>
+      <div class="metric-label">On-time Delivery</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">4.7<span style="font-size:1.2rem">/5</span></div>
+      <div class="metric-label">Quality Score</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">58%</div>
+      <div class="metric-label">Origination Time Reduced</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Core Competencies</div>
+  <h2>What I Bring</h2>
+  <div class="skills-grid">
+    <div class="skill-chip">Client Workshop Facilitation</div>
+    <div class="skill-chip">Product Demo & Training</div>
+    <div class="skill-chip">System Integration (REST APIs)</div>
+    <div class="skill-chip">Change Management (ADKAR)</div>
+    <div class="skill-chip">Requirements & Documentation</div>
+    <div class="skill-chip">Stakeholder Management</div>
+    <div class="skill-chip">AI Agents & Prompt Engineering</div>
+    <div class="skill-chip">MCP · A2A Protocols</div>
+    <div class="skill-chip">SAML · OIDC · SCIM · OKTA</div>
+    <div class="skill-chip">ReBAC · RBAC · ABAC</div>
+    <div class="skill-chip">CI/CD · IaC (Terraform)</div>
+    <div class="skill-chip">SaaS · Microservices</div>
+    <div class="skill-chip">ML (TensorFlow) · Vector DB</div>
+    <div class="skill-chip">AWS · Azure DevOps</div>
+    <div class="skill-chip">.Net · Python · T-SQL</div>
+    <div class="skill-chip">Balsamiq · Jira · Power BI</div>
+    <div class="skill-chip">Salesforce · Rally · Visio</div>
+    <div class="skill-chip">Agile / Scrum</div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Career</div>
+  <h2>Work Experience</h2>
+
+  <!-- IEHP -->
+  <div class="job">
+    <div class="job-header">
+      <div class="job-company">IEHP</div>
+      <div class="job-period">07/2025 – Present</div>
+    </div>
+    <div class="job-location">Rancho Cucamonga, CA</div>
+    <div class="job-context">Largest not-for-profit Medicare-Medicaid public health plan in the US, serving 1.5M+ members and 8,000+ providers.</div>
+    <div class="role-block">
+      <div class="role-title">Implementation Manager</div>
+      <ul class="bullets">
+        <li>Lead end-to-end implementation of digital and integration initiatives across business, operations, and technology teams.</li>
+        <li>Manage B2B and API-based integrations for member and provider platforms, including data mappings, transformation logic, and secure data exchange.</li>
+        <li>Driving delivery of Agentic AI Virtual Assistants for Member and Provider portals, improving accuracy and user experience iteratively.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Moody's -->
+  <div class="job">
+    <div class="job-header">
+      <div class="job-company">Moody's Analytics</div>
+      <div class="job-period">04/2010 – 03/2025</div>
+    </div>
+    <div class="job-location">San Francisco, CA</div>
+    <div class="job-context">$3.6B revenue firm providing economic research, risk modeling, financial software, and consulting to global financial and insurance institutions.</div>
+
+    <div class="role-block">
+      <div class="role-title">Associate Director – Sr. Implementation Manager</div>
+      <div class="role-period-sub">02/2019 – 03/2025</div>
+      <ul class="bullets">
+        <li>Led client onboarding, solution design, and implementation for global financial institutions — contributing $3M in annual revenue.</li>
+        <li>Built trusted advisor relationships with C-level executives, risk officers, and analytics teams across institutions worldwide.</li>
+        <li>Managed up to 10 concurrent software projects, improving loan origination processes and reducing origination times by 58%.</li>
+        <li>Delivered cloud integration solutions including real-time REST API (.Net C#) and scheduled batch processes, supporting SaaS adoption.</li>
+        <li>Increased product adoption by 25% and improved client satisfaction scores by 18% through tailored value proposition communication.</li>
+        <li>Enhanced delivery efficiency by 40% through standardized documentation templates; boosted upgrade quality by 65%.</li>
+        <li>Deep expertise in SSO via Okta/SAML and JWT token-based access for secure solution rollouts.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="role-title">Assistant Director – Sr. Implementation Manager</div>
+      <div class="role-period-sub">09/2015 – 02/2019</div>
+      <ul class="bullets">
+        <li>Delivered $1M in annual revenue through successful implementations — 99% on-time with 4.7/5.0 quality scores.</li>
+        <li>Managed customization of Moody's credit risk assessment products for global banks.</li>
+        <li>Designed custom workflows, credit scoring models, and integration solutions aligned to client needs and regulatory compliance.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="role-title">Senior Software Test Engineer</div>
+      <div class="role-period-sub">09/2013 – 08/2015 · Singapore</div>
+      <ul class="bullets">
+        <li>Pioneered test automation strategies and functional testing for Moody's banking solutions.</li>
+        <li>Conducted QA and system validation for credit risk platforms; participated in product design and gap analysis.</li>
+      </ul>
+    </div>
+
+    <div class="role-block">
+      <div class="role-title">Software Engineer</div>
+      <div class="role-period-sub">04/2010 – 09/2013 · Singapore</div>
+      <ul class="bullets">
+        <li>Developed credit risk platforms; key contributions include AI integration in the formula engine, Dependency Manager, C++ APIs, MDM adapter, and Dynamic adapter (FLEX).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Verizon -->
+  <div class="job">
+    <div class="job-header">
+      <div class="job-company">Verizon Data Services India</div>
+      <div class="job-period">04/2006 – 04/2007</div>
+    </div>
+    <div class="job-location">Chennai, India</div>
+    <div class="role-block">
+      <div class="role-title">Software Engineer</div>
+      <ul class="bullets">
+        <li>Developed wireless solutions focused on Bluetooth presence services and VoIP applications.</li>
+        <li>Directed system integrations for customer premise equipment (CPE) provisioning.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- IBM -->
+  <div class="job">
+    <div class="job-header">
+      <div class="job-company">IBM</div>
+      <div class="job-period">04/2005 – 04/2006</div>
+    </div>
+    <div class="job-location">Bangalore, India</div>
+    <div class="role-block">
+      <div class="role-title">Software Engineer</div>
+      <ul class="bullets">
+        <li>Developed insurance and healthcare applications; managed billing and accounts receivable systems.</li>
+        <li>Delivered technical solutions for complex business processes within healthcare and financial services.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & CERTS -->
+<section id="education">
+  <div class="section-label">Education & Development</div>
+  <h2>Credentials</h2>
+
+  <div class="edu-card">
+    <div class="edu-degree">Masters, Computer Science</div>
+    <div class="edu-school">Anna University / College of Engineering, Chennai, India</div>
+  </div>
+
+  <div class="edu-card">
+    <div class="edu-degree">Agentic AI and AI Agents: A Primer for Leaders</div>
+    <div class="edu-school">Vanderbilt University</div>
+    <div class="edu-year">2025 · Credential ID: QIGPB8MLRXWU</div>
+  </div>
+
+  <div class="edu-card">
+    <div class="edu-degree">Certified Business Analysis Professional (CBAP)</div>
+    <div class="edu-school">National University of Singapore</div>
+    <div class="edu-year">2013</div>
+  </div>
+
+  <div class="edu-card">
+    <div class="edu-degree">Fundamentals of Corporate Credit Analysis</div>
+    <div class="edu-school">Moody's</div>
+    <div class="edu-year">2013</div>
+  </div>
+
+  <div class="edu-card">
+    <div class="edu-degree">Agile & Scrum Methodologies</div>
+    <div class="edu-school">ThoughtWorks</div>
+    <div class="edu-year">2014</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Preethi Kamalakkannan &nbsp;·&nbsp; Walnut Creek, CA &nbsp;·&nbsp; <a href="mailto:preethi.kamalakannan@gmail.com">preethi.kamalakannan@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
